@@ -11,6 +11,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ActivitiesScreen from "./screens/ActivitiesScreen.js";
 import UpdatesScreen from "./screens/UpdatesScreen.js";
 import RulesScreen from "./screens/RulesScreen.js";
+import SetupScreen from "./screens/SetupScreen.js";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 const Tab = createBottomTabNavigator();
@@ -44,6 +45,7 @@ export default function App() {
         <Tab.Screen name="Updates" component={UpdatesScreen} />
         <Tab.Screen name="Activities" component={ActivitiesScreen} />
         <Tab.Screen name="Rules" component={RulesScreen} />
+        <Tab.Screen name="Setup" component={SetupScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
