@@ -8,23 +8,43 @@ const CountryList = ({ navigation }) => {
   const handlePress = () => setExpanded(!expanded);
 
   return (
-    <List.Section>
+    <List.Section style={styles.accordianContainer}>
       <List.Accordion
         title="Select Your Country"
         left={(props) => <List.Icon {...props} icon="earth" />}
         expanded={expanded}
         onPress={handlePress}
       >
-        <TouchableOpacity style={styles.listItem}>
+        <TouchableOpacity
+          style={styles.listItem}
+          onPress={() => {
+            setSelect(true);
+          }}
+        >
           <List.Item title="Singapore" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.listItem}>
+        <TouchableOpacity
+          style={styles.listItem}
+          onPress={() => {
+            setSelect(true);
+          }}
+        >
           <List.Item title="Malaysia" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.listItem}>
+        <TouchableOpacity
+          style={styles.listItem}
+          onPress={() => {
+            setSelect(true);
+          }}
+        >
           <List.Item title="Japan" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.listItem}>
+        <TouchableOpacity
+          style={styles.listItem}
+          onPress={() => {
+            setSelect(true);
+          }}
+        >
           <List.Item title="Thailand" />
         </TouchableOpacity>
       </List.Accordion>

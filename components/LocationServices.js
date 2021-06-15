@@ -24,5 +24,7 @@ const styles = StyleSheet.create({
         width: "100%",
         paddingLeft: 10,
         margin: 15,
+        fontSize: 24,
+        fontWeight: 'bold',
     }
 })
