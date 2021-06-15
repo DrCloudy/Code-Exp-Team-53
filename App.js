@@ -1,58 +1,59 @@
-import { StatusBar } from 'expo-status-bar';
-import React, {useState, useEffect} from 'react';
+import { StatusBar } from "expo-status-bar";
+import React, { useState, useEffect } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from "@react-navigation/native";
-import { BottomNavigation, Text, Appbar, DefaultTheme ,Provider as PaperProvider } from 'react-native-paper';
-import { StyleSheet, View, FlatList, Button, TouchableOpacity } from 'react-native';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import ActivitiesScreen from "./screens/ActivitiesScreen.js";
+import UpdatesScreen from "./screens/UpdatesScreen.js";
+import RulesScreen from "./screens/RulesScreen.js";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-const MusicRoute = () => <Text>Music</Text>;
+const Tab = createBottomTabNavigator();
 
-const AlbumsRoute = () => <Text>Albums</Text>;
-
-const RecentsRoute = () => <Text>Recents</Text>;
-
-const Home = () => {
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
-    { key: 'music', title: 'Music', icon: 'queue-music' },
-    { key: 'albums', title: 'Albums', icon: 'album' },
-    { key: 'recents', title: 'Recents', icon: 'history' },
-  ]);
-
-  const renderScene = BottomNavigation.SceneMap({
-    music: MusicRoute,
-    albums: AlbumsRoute,
-    recents: RecentsRoute,
-  });
-
+export default function App() {
   return (
-    <BottomNavigation
-      navigationState={{ index, routes }}
-      onIndexChange={setIndex}
-      renderScene={renderScene}
-    />
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            //Set the icon based on which route it is (name of the tab)
+            if (route.name === "Updates") {
+              iconName = "newspaper-o";
+            } else if (route.name === "Activities") {
+              iconName = "home";
+            } else if (route.name === "Rules") {
+              iconName = "group";
+            }
+
+            // You can return any component that you like here!
+            return <FontAwesome name={iconName} size={size} color={color} />;
+          },
+        })}
+        tabBarOptions={{
+          activeTintColor: "tomato",
+          inactiveTintColor: "gray",
+        }}
+      >
+        <Tab.Screen name="Updates" component={UpdatesScreen} />
+        <Tab.Screen name="Activities" component={ActivitiesScreen} />
+        <Tab.Screen name="Rules" component={RulesScreen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
-};
-
-export default Home;
-
-const theme = {
-  ...DefaultTheme,
-  mode: 'adaptive',
-  colors: {
-    ...DefaultTheme.colors,
-    primary: 'tomato',
-    accent: 'yellow',
-  },
-};
-
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "rgba(0,0,255,0.5)",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
