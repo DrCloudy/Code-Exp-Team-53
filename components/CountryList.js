@@ -2,7 +2,7 @@ import * as React from "react";
 import { TouchableOpacity, StyleSheet } from "react-native";
 import { List, Avatar } from "react-native-paper";
 
-const CountryList = ({ navigation, choose }) => {
+const CountryList = ({ navigation }) => {
   const [expanded, setExpanded] = React.useState(true);
 
   const handlePress = () => setExpanded(!expanded);
