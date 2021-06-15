@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { Text, View, StyleSheet, TouchableOpacity, Button, FlatList } from "react-native";
+import React from "react";
+import { Text, View, StyleSheet, TouchableOpacity, FlatList, Alert } from "react-native";
 import { List } from "react-native-paper";
 
 /* Previous code - could not figure out how to pass var around components
@@ -23,39 +23,32 @@ const COUNTRIES = [
 export default function test({ navigation }){
     const [expanded, setExpanded] = React.useState(true);
     const handlePress = () => setExpanded(!expanded);
-    const [select, setSelect] = useState(false);
     
+    const locationAlert = () =>
+      Alert.alert("Suggestion", "For a better experience, please turn on device location.", [
+        {
+          text: "Cancel",
+          onPress: () => console.log("No Pressed"),
+          style: "cancel",
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") },
+      ]);
+
     function renderItem({ item }){
         return (
             <View>
-                <TouchableOpacity onPress={() => setSelect(true)}><Text style={styles.listItem}>{item.id}</Text></TouchableOpacity>
+                <TouchableOpacity onPress={locationAlert}><Text style={styles.listItem}>{item.id}</Text></TouchableOpacity>
             </View>
         );
-    }
+    } 
 
-    if (select){
-        return (
-            <View style={styles.locationContainer}>
-                <Text style={styles.text}>
-                For a better experience, please turn on device location, which
-                uses Google's location services.
-                </Text>
-                <View style={{ flexDirection: "row" }}>
-                <Button title="No Thanks" onPress={() => {}} />
-                <Button title="Okay" onPress={() => {}} />
-                </View>
-            </View>
-        );
-    } else {
-        return (
-            <View style={styles.listContainer}>
-                <Text style={styles.listText}>Please Select Country of Residence</Text>
-                <FlatList style={styles.listStyle} data={COUNTRIES} renderItem={renderItem} />
-            </View>
-        );
-    }
-        
-}
+    return (
+        <View style={styles.listContainer}>
+            <Text style={styles.listText}>Please Select Country of Residence</Text>
+            <FlatList style={styles.listStyle} data={COUNTRIES} renderItem={renderItem} />
+        </View>
+    );
+}  
 
 const styles = StyleSheet.create({
     locationContainer: {
