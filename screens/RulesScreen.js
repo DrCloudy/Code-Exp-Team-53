@@ -108,7 +108,7 @@ const MainStack = createStackNavigator();
 function MainStackScreen() {
   return (
     <MainStack.Navigator>
-      <MainStack.Screen name="Home" component={RulesScreen} />
+      <MainStack.Screen name="Home" component={RulesScreen} options={{ headerShown: false}} />
     </MainStack.Navigator>
   );
 }

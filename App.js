@@ -11,6 +11,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ActivitiesScreen from "./screens/ActivitiesScreen.js";
 import UpdatesScreen from "./screens/UpdatesScreen.js";
 import RulesScreen from "./screens/RulesScreen.js";
+import settingsStack from "./screens/settings/settingsStack.js";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { MaterialIcons } from '@expo/vector-icons';
 
@@ -38,9 +39,9 @@ export default function App() {
             }
 
             // You can return any component that you like here!
-            if(fontFamily ==="FontAwesome"){
+            if (fontFamily ==="FontAwesome") {
               return <FontAwesome name={iconName} size={size} color={color} />;
-            }else if(fontFamily ==="MaterialIcons"){
+            } else if (fontFamily ==="MaterialIcons") {
               return <MaterialIcons name={iconName} size={size} color={color} />;
             }
           },
@@ -53,6 +54,7 @@ export default function App() {
         <Tab.Screen name="Updates" component={UpdatesScreen} />
         <Tab.Screen name="Activities" component={ActivitiesScreen} />
         <Tab.Screen name="Rules" component={RulesScreen} />
+        <Tab.Screen name="Settings" component={settingsStack} />
       </Tab.Navigator>
     </NavigationContainer>
   );
