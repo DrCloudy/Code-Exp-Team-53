@@ -15,7 +15,7 @@ export default function prefScreen() {
   const [sel2, setSel2] = useState(true);
   const [sel3, setSel3] = useState(true);
   const [sel4, setSel4] = useState(true);
-  const [sel5, setSel5] = useState(true);
+  const [sel5, setSel5] = useState(false);
 
   function flip0() {
     setSel0(!sel0);
