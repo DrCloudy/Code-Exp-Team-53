@@ -13,7 +13,7 @@ import UpdatesScreen from "./screens/UpdatesScreen.js";
 import RulesScreen from "./screens/RulesScreen.js";
 import settingsStack from "./screens/settings/settingsStack.js";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, Octicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -36,13 +36,18 @@ export default function App() {
             } else if (route.name === "Rules") {
               fontFamily = "MaterialIcons"
               iconName = "rule";
-            } 
+            } else if (route.name === "Settings") {
+              fontFamily = "Octicons"
+              iconName = "gear";
+            }
 
             // You can return any component that you like here!
             if (fontFamily ==="FontAwesome") {
               return <FontAwesome name={iconName} size={size} color={color} />;
             } else if (fontFamily ==="MaterialIcons") {
               return <MaterialIcons name={iconName} size={size} color={color} />;
+            } else if (fontFamily ==="Octicons") {
+              return <Octicons name={iconName} size={size} color={color} />;
             }
           },
         })}
