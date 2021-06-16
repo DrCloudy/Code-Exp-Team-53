@@ -7,7 +7,8 @@ import prefScreen from "./PreferencesScreen";
 import langScreen from "./LanguagesScreen";
 import helpScreen from "./HelpCentreScreen";
 import contactScreen from "./ContactUsScreen";
-import SetupScreen from "./SetupScreen";
+import SelectHomeScreen from "./SelectHomeScreen";
+import SelectDestScreen from "./SelectDestinationScreen";
 
 
 const Stack = createStackNavigator();
@@ -15,11 +16,15 @@ const Stack = createStackNavigator();
 export default function settingsStack() {
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator>
+      <Stack.Navigator options={{ headerTintColor: "white" }}>
         <Stack.Screen
           name="Settings"
           component={settingsScreen}
-          options={{ headerStyle: { backgroundColor: "tomato" }, headerTintColor: 'white', headerTitleAlign: 'center' }}
+          options={{
+            headerStyle: { backgroundColor: "tomato" },
+            headerTintColor: "white",
+            headerTitleAlign: "center",
+          }}
         />
         <Stack.Screen
           name="Notifications"
@@ -37,8 +42,13 @@ export default function settingsStack() {
           options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
-          name="Change Country"
-          component={SetupScreen}
+          name="Home Country"
+          component={SelectHomeScreen}
+          options={{ headerStyle: { backgroundColor: "tomato" } }}
+        />
+        <Stack.Screen
+          name="Destination Country"
+          component={SelectDestScreen}
           options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen

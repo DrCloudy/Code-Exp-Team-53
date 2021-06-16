@@ -11,10 +11,11 @@ export default function settingsScreen({ navigation }) {
   const settingsOptions = [
     { title: "Notifications", id: "0" },
     { title: "Preferences", id: "1" },
-    { title: "Change Country", id: "2"},
-    { title: "Language", id: "3" },
-    { title: "Help Centre", id: "4" },
-    { title: "Contact Us!", id: "5" },
+    { title: "Home Country", id: "2"},
+    { title: "Destination Country", id: "3"},
+    { title: "Language", id: "4" },
+    { title: "Help Centre", id: "5" },
+    { title: "Contact Us!", id: "6" },
   ];
 
   function renderItem({ item }) {

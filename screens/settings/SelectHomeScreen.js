@@ -1,19 +1,5 @@
 import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity, FlatList, Alert } from "react-native";
-import { List } from "react-native-paper";
-import { interpolate } from "react-native-reanimated";
-
-/* Previous code - could not figure out how to pass var around components
-export default function SetupScreen({ navigation }) {
-    return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Please Select Country of Residence</Text>
-            <CountryList/>
-            <LocationServices/>
-        </View>
-    )
-}
-*/
 
 const COUNTRIES = [
     {id: "Singapore"},
@@ -41,7 +27,7 @@ export default function ChangeCountry({ navigation }){
       ]);
 
     function renderItem({ item }){
-        if (item.id === "South Korea"){
+        if (item.id === "Singapore"){
             return (
               <View>
                 <TouchableOpacity
