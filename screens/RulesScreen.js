@@ -17,14 +17,8 @@ export default function RulesScreen() {
     <ScrollView>
       <View>
         <Appbar.Header style={{backgroundColor: "tomato",}}>
-          <View>
-            <View style={{flex: 1}}>
-              <Appbar.Content title="Rules and Regulations" style = {styles.Headstyle} color = "white"/>  
-            </View>
-            <View>
-              <Avatar.Image size={40} source={CountryFlag}/>
-            </View>
-          </View>
+          <Appbar.Content title="Rules and Regulations" style = {styles.Headstyle} color = "white"/>  
+          <Avatar.Image size={40} source={CountryFlag}/>
         </Appbar.Header>
         <View style={{padding: 5}}>
           <Text style={styles.title}>South Korea</Text>
