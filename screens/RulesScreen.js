@@ -10,9 +10,8 @@ export default function RulesScreen() {
   var DestCountry = 'South Korea';
   var CountryFlag;
   if(DestCountry==='South Korea'){
-    CountryFlag = require('../country-flags (Icon made by Freepik from www.flaticon.com)/png/219-south korea.png')
+    CountryFlag = require("../country-flags (Icon made by Freepik from www.flaticon.com)/png/219-south korea.png");
   }
-
 
   return (
     <ScrollView>
