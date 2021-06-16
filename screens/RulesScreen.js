@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   },
   title:{
     fontWeight: 'bold', 
-    fontSize: 35,
+    fontSize: 30,
   },
   subheader:{
     fontSize: 15,
