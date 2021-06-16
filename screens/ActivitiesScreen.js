@@ -1,20 +1,86 @@
-import React from "react";
-import { Text, View, StyleSheet } from "react-native";
+import * as React from 'react';
+import { View, StyleSheet } from 'react-native';
+import { List } from 'react-native-paper';
 
-export default function ActivitiesScreen() {
+const MyComponent = () => {
   return (
+
+    <List.Section title="Activities of note" titleStyle={{fontSize: 20, textAlign: 'center', textTransform: 'uppercase'}}>
     <View style={styles.container}>
-      <Text>Reccommendations</Text>
-      <Image style={{width:2,height:2}} source={{uri: 'https://cdn.countryflags.com/thumbs/singapore/flag-button-round-250.png'}}/>
+      <List.Accordion
+        title="Outdoor Sports"
+        descriptionStyle={{fontSize: 15}}
+        left={props => <List.Icon {...props} icon="folder" />}
+        style={styles.listAccordion}>
+        <List.Item
+        style={styles.listItem}
+        title="Location"
+        titleStyle={{fontSize: 15}}
+        description="Any outdoors venue."
+        descriptionStyle={{fontSize: 12}}
+        />
+        <List.Item
+        style={styles.listItem}
+        title="Requirements/Restrictions"
+        titleStyle={{fontSize: 15}}
+        description="Maintain safe distancing as required."
+        descriptionStyle={{fontSize: 12}}
+        />
+        <List.Item
+        style={styles.listItem}
+        title="Miscellaneous Notes"
+        titleStyle={{fontSize: 15}}
+        description="Mask wearing is recommended but not legally required during strenuous activity."
+        descriptionStyle={{fontSize: 12}}
+        />
+      </List.Accordion>
+
+      <List.Accordion
+        title="Outdoor Sports"
+        descriptionStyle={{fontSize: 15}}
+        left={props => <List.Icon {...props} icon="folder" />}
+        style={styles.listAccordion}>
+        <List.Item
+        style={styles.listItem}
+        title="Location"
+        titleStyle={{fontSize: 15}}
+        description="Any outdoors venue."
+        descriptionStyle={{fontSize: 12}}
+        />
+        <List.Item
+        style={styles.listItem}
+        title="Requirements/Restrictions"
+        titleStyle={{fontSize: 15}}
+        description="Maintain safe distancing as required."
+        descriptionStyle={{fontSize: 12}}
+        />
+        <List.Item
+        style={styles.listItem}
+        title="Miscellaneous Notes"
+        titleStyle={{fontSize: 15}}
+        description="Mask wearing is recommended but not legally required during strenuous activity."
+        descriptionStyle={{fontSize: 12}}
+        />
+      </List.Accordion>
     </View>
+    </List.Section>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0,255,0,0.5)",
+    padding: '1%'
   },
+  listItem: {
+    margin: 0,
+    marginTop: 0,
+    marginBottom: 0
+  },
+  listAccordion: {
+    borderWidth: 1,
+    borderRadius: 5,
+    marginBottom: 1
+  }
 });
+
+export default MyComponent;
