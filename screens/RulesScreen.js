@@ -6,19 +6,28 @@ import Hyperlink from 'react-native-hyperlink'
 
 
 export default function RulesScreen() {
+  var DestCountry = 'South Korea';
+  var CountryFlag;
+  if(DestCountry==='South Korea'){
+    CountryFlag = require('../country-flags (Icon made by Freepik from www.flaticon.com)/png/219-south korea.png')
+  }
+
+
   return (
     <ScrollView>
       <View>
         <Appbar.Header style={{backgroundColor: "tomato",}}>
-          <Appbar.Content title="Rules and Regulations" style = {styles.Headstyle} color = "white"/>
-          <TouchableOpacity>
-            <View>
-              <Image style={{width:50,height:50}} source={{uri: 'https://cdn.countryflags.com/thumbs/singapore/flag-button-round-250.png'}}/>
+          <View>
+            <View style={{flex: 1}}>
+              <Appbar.Content title="Rules and Regulations" style = {styles.Headstyle} color = "white"/>  
             </View>
-          </TouchableOpacity>
+            <View>
+              <Avatar.Image size={40} source={CountryFlag}/>
+            </View>
+          </View>
         </Appbar.Header>
         <View style={{padding: 5}}>
-          <Text style={styles.title}>Korea</Text>
+          <Text style={styles.title}>South Korea</Text>
         </View>
         <View style={{padding: 5}}>
           <Card>
@@ -91,7 +100,6 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(255,0,0,0.5)",
   },
   Headstyle: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center"
   },
