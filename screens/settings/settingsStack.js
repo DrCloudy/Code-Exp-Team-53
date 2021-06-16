@@ -19,11 +19,7 @@ export default function settingsStack() {
         <Stack.Screen
           name="Settings"
           component={settingsScreen}
-          options={{
-            headerStyle: {
-              backgroundColor: "tomato",
-            },
-          }}
+          options={{ headerStyle: { backgroundColor: "tomato" }, headerTintColor: 'white', headerTitleAlign: 'center' }}
         />
         <Stack.Screen
           name="Notifications"

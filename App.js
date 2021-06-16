@@ -36,7 +36,7 @@ export default function App() {
             } else if (route.name === "Rules") {
               fontFamily = "MaterialIcons"
               iconName = "rule";
-            }
+            } 
 
             // You can return any component that you like here!
             if (fontFamily ==="FontAwesome") {

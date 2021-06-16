@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity, FlatList, Alert } from "react-native";
 import { List } from "react-native-paper";
+import { interpolate } from "react-native-reanimated";
 
 /* Previous code - could not figure out how to pass var around components
 export default function SetupScreen({ navigation }) {
@@ -17,13 +18,18 @@ export default function SetupScreen({ navigation }) {
 const COUNTRIES = [
     {id: "Singapore"},
     {id: "Malaysia"},
-    {id: "Japan"}
+    {id: "Japan"},
+    {id: "South Korea"},
+    {id: "China"},
+    {id: "Thailand"},
+    {id: "Phillipines"},
+    {id: "Vietnam"},
 ]
 
 export default function ChangeCountry({ navigation }){
     const [expanded, setExpanded] = React.useState(true);
     const handlePress = () => setExpanded(!expanded);
-    
+
     const locationAlert = () =>
       Alert.alert("Suggestion", "For a better experience, please turn on device location.", [
         {
@@ -35,13 +41,29 @@ export default function ChangeCountry({ navigation }){
       ]);
 
     function renderItem({ item }){
-        return (
-          <View>
-            <TouchableOpacity onPress={locationAlert} style={styles.listItem}>
-              <Text>{item.id}</Text>
-            </TouchableOpacity>
-          </View>
-        );
+        if (item.id === "South Korea"){
+            return (
+              <View>
+                <TouchableOpacity
+                  onPress={locationAlert}
+                  style={styles.listItemSelected}
+                >
+                  <Text style={{ color: 'white' }}>{item.id}</Text>
+                </TouchableOpacity>
+              </View>
+            );
+        } else {
+            return (
+              <View>
+                <TouchableOpacity
+                  onPress={locationAlert}
+                  style={styles.listItem}
+                >
+                  <Text>{item.id}</Text>
+                </TouchableOpacity>
+              </View>
+            );
+        }
     } 
 
     return (
@@ -56,7 +78,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: "100%",
     justifyContent: "center",
-    backgroundColor: "white",
+    backgroundColor: "#eee",
   },
   listContainer: {
     alignItems: "center",
@@ -64,6 +86,7 @@ const styles = StyleSheet.create({
   },
   listStyle: {
     width: "50%",
+    height: "100%",
     backgroundColor: "#eee",
   },
   listItem: {
@@ -72,7 +95,15 @@ const styles = StyleSheet.create({
     margin: 5,
     borderRadius: 15,
     alignItems: "center",
-    textAlign: 'center',
+    textAlign: "center",
+  },
+  listItemSelected: {
+    backgroundColor: "salmon",
+    padding: 10,
+    margin: 5,
+    borderRadius: 15,
+    alignItems: "center",
+    textAlign: "center",
   },
   listText: {
     fontSize: 30,
