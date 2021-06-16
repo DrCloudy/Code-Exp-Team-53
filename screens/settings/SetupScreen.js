@@ -20,7 +20,7 @@ const COUNTRIES = [
     {id: "Japan"}
 ]
 
-export default function test({ navigation }){
+export default function ChangeCountry({ navigation }){
     const [expanded, setExpanded] = React.useState(true);
     const handlePress = () => setExpanded(!expanded);
     
@@ -36,51 +36,47 @@ export default function test({ navigation }){
 
     function renderItem({ item }){
         return (
-            <View>
-                <TouchableOpacity onPress={locationAlert}><Text style={styles.listItem}>{item.id}</Text></TouchableOpacity>
-            </View>
+          <View>
+            <TouchableOpacity onPress={locationAlert} style={styles.listItem}>
+              <Text>{item.id}</Text>
+            </TouchableOpacity>
+          </View>
         );
     } 
 
     return (
         <View style={styles.listContainer}>
-            <Text style={styles.listText}>Please Select Country of Residence</Text>
             <FlatList style={styles.listStyle} data={COUNTRIES} renderItem={renderItem} />
         </View>
     );
 }  
 
 const styles = StyleSheet.create({
-    locationContainer: {
-        alignItems: "center",
-        height: "100%",
-        justifyContent: 'center',
-        backgroundColor: 'white',
-    },
-    text: {
-        width: "100%",
-        margin: 15,
-        fontSize: 24,
-        textAlign: 'center',
-    },
-    listContainer: {
-        paddingTop: 10,
-        alignItems: 'center',
-        backgroundColor: '#ddd',
-    },
-    listStyle: {
-        width: "100%",
-        backgroundColor: '#eee',
-        height: '100%'
-    },
-    listItem: {
-        fontSize: 22,
-        textAlign: 'center',
-        padding: 5,
-    },
-    listText: {
-        fontSize: 24, 
-        width: '100%',
-        textAlign: 'center',
-    }
+  locationContainer: {
+    alignItems: "center",
+    height: "100%",
+    justifyContent: "center",
+    backgroundColor: "white",
+  },
+  listContainer: {
+    alignItems: "center",
+    backgroundColor: "#eee",
+  },
+  listStyle: {
+    width: "50%",
+    backgroundColor: "#eee",
+  },
+  listItem: {
+    backgroundColor: "lightgrey",
+    padding: 10,
+    margin: 5,
+    borderRadius: 15,
+    alignItems: "center",
+    textAlign: 'center',
+  },
+  listText: {
+    fontSize: 30,
+    width: "100%",
+    textAlign: "center",
+  },
 });
