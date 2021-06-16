@@ -1,59 +1,125 @@
-import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import SetupScreen from "./SetupScreen.js"
+import React from "react";
+import {Share, Text, View, StyleSheet,ScrollView,Linking } from "react-native";
+import { Avatar, Button, Card, Title, } from 'react-native-paper';
 
-function HomeScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text style={{ fontSize: 30 }}>This is the home screen!</Text>
-      <Button
-        onPress={() => navigation.navigate("MyModal")}
-        title="Open Modal"
-      />
-    </View>
-  );
+
+export default class MyComponent extends React.Component{
+  loadInBrowserKorea = () => {
+    Linking.openURL("http://ncov.mohw.go.kr/en/").catch(err => console.error("Couldn't load page", err));
+  };
+  onShareTKorea = async () => {
+    try {
+      const result = await Share.share({
+        message:
+        "New updates regarding testing in South Korea : http://ncov.mohw.go.kr/en/"
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+        } else {
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+  onShareCKorea = async () => {
+    try {
+      const result = await Share.share({
+        message:
+        "New updates regarding cases in South Korea : http://ncov.mohw.go.kr/en/"
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+  onShareSingapore = async () => {
+    try {
+      const result = await Share.share({
+        message:
+        "New updates regarding cases in Singapore : https://www.moh.gov.sg/covid-19"
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+  loadInBrowserSingapore = () => {
+    Linking.openURL("https://www.moh.gov.sg/covid-19").catch(err => console.error("Couldn't load page", err));
+  };
+
+  render(){
+  const korea= props=> <Avatar.Image size={40} source={require('../assets/southkorea.png')}/>
+  const singapore= props=> <Avatar.Image size={40} source={require('../assets/singapore.png')}/>
+      return(
+        <ScrollView>
+          <Card>
+            <Card.Title title="Korea" subtitle="as of 12am on June 15, 2021" left={korea} />
+            <Card.Content>
+              <Title>Case Summary in Korea</Title>
+            </Card.Content>
+            <Card.Cover style={{height: 150}} source={require('../assets/SouthKoreastats.jpg')} resizeMode={'stretch'} />
+            <Card.Actions>
+              <Button onPress={this.onShareCKorea}>Share</Button>
+              <Button onPress={this.loadInBrowserKorea}>Explore</Button>
+            </Card.Actions>
+          </Card>
+          <Card>
+            <Card.Title title= 'Korea' subtitle="as of 12am on June 15, 2021" left={korea} />
+            <Card.Content>
+              <Title>Testing in Korea</Title>
+            </Card.Content>
+            <Card.Cover style={{height: 150}} source={require('../assets/SouthKoreatests.jpg')} resizeMode={'stretch'} />
+            <Card.Actions>
+              <Button onPress={this.onShareTKorea}>Share</Button>
+              <Button onPress={this.loadInBrowserKorea}>Explore</Button>
+            </Card.Actions>
+          </Card>
+          <Card>
+            <Card.Title title="Singapore" subtitle="as at 14 June 2021, 1200h" left={singapore} />
+            <Card.Content>
+              <Title>Case Summary in Singapore</Title>
+            </Card.Content>
+            <Card.Cover style={{height: 150}} source={require('../assets/Singaporestats.jpg')} resizeMode={'stretch'} />
+            <Card.Actions>
+              <Button onPress={this.onShareSingapore}>Share</Button>
+              <Button onPress={this.loadInBrowserSingapore}>Explore</Button>
+            </Card.Actions>
+          </Card>
+        </ScrollView>
+      );
+    }
 }
 
-function DetailsScreen() {
-  return (
-    <View>
-      <Text>Details</Text>
-    </View>
-  );
-}
-
-function ModalScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1 }}>
-      <SetupScreen />
-    </View>
-  );
-}
-
-const MainStack = createStackNavigator();
-const RootStack = createStackNavigator();
-
-function MainStackScreen() {
-  return (
-    <MainStack.Navigator>
-      <MainStack.Screen name="Home" component={HomeScreen} />
-      <MainStack.Screen name="Details" component={DetailsScreen} />
-    </MainStack.Navigator>
-  );
-}
-
-export default function UpdatesScreen() {
-  return (
-    <RootStack.Navigator mode="modal">
-      <RootStack.Screen
-        name="Main"
-        component={MainStackScreen}
-        options={{ headerShown: false }}
-      />
-      <RootStack.Screen name="MyModal" component={ModalScreen} />
-    </RootStack.Navigator>
-  );
-}
+/*
+  koreaShare = async () => {
+    const shareOptions= {
+      title: "Testing in Korea",//string
+      //message: "http://ncov.mohw.go.kr/en/",
+      url:files.korea
+    }
+    try{
+      const shareResponse = await Share2.open(shareOptions);
+    }catch(error){
+      console.log('Error=> ',error);
+    }
+  };
+  */

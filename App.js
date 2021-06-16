@@ -11,8 +11,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ActivitiesScreen from "./screens/ActivitiesScreen.js";
 import UpdatesScreen from "./screens/UpdatesScreen.js";
 import RulesScreen from "./screens/RulesScreen.js";
-import SetupScreen from "./screens/SetupScreen.js";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
+import { MaterialIcons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,18 +23,26 @@ export default function App() {
         screenOptions={({ route }) => ({
           tabBarIcon: ({ focused, color, size }) => {
             let iconName;
+            let fontFamily;
 
             //Set the icon based on which route it is (name of the tab)
             if (route.name === "Updates") {
+              fontFamily = "FontAwesome"
               iconName = "newspaper-o";
             } else if (route.name === "Activities") {
-              iconName = "home";
+              fontFamily = "MaterialIcons"
+              iconName = "local-activity";
             } else if (route.name === "Rules") {
-              iconName = "group";
+              fontFamily = "MaterialIcons"
+              iconName = "rule";
             }
 
             // You can return any component that you like here!
-            return <FontAwesome name={iconName} size={size} color={color} />;
+            if(fontFamily ==="FontAwesome"){
+              return <FontAwesome name={iconName} size={size} color={color} />;
+            }else if(fontFamily ==="MaterialIcons"){
+              return <MaterialIcons name={iconName} size={size} color={color} />;
+            }
           },
         })}
         tabBarOptions={{
@@ -45,7 +53,6 @@ export default function App() {
         <Tab.Screen name="Updates" component={UpdatesScreen} />
         <Tab.Screen name="Activities" component={ActivitiesScreen} />
         <Tab.Screen name="Rules" component={RulesScreen} />
-        <Tab.Screen name="Setup" component={SetupScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
