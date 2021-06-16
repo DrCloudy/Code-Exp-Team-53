@@ -1,85 +1,63 @@
 import * as React from "react";
-import { View, StyleSheet } from "react-native";
-import { List, Avatar, Appbar, IconButton } from "react-native-paper";
+import { View, StyleSheet, Text, ScrollView, Linking } from "react-native";
+import { List, Avatar, Appbar, IconButton, Card, Paragraph, Button, Searchbar } from "react-native-paper";
 
 const MyComponent = () => {
-  var DestCountry = "South Korea";
-  var CountryFlag;
-  if (DestCountry === "South Korea") {
-    CountryFlag = require("../country-flags (Icon made by Freepik from www.flaticon.com)/png/219-south korea.png");
-  }
-
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const onChangeSearch = query => setSearchQuery(query);
+  
   return (
-    <View>
-      <Appbar.Header style={{ backgroundColor: "tomato" }}>
-        <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems:'center'}}>
-          <Appbar.Content
-            title="Activities"
-            style={{ justifyContent: "center", alignItems: "center" }}
-            color="white"
-          />
+    <ScrollView>
+      <View>
+        <Appbar.Header style={{ backgroundColor: "tomato" }}>
+          <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems:'center'}}>
+            <Appbar.Content
+              title="Activities"
+              style={{ justifyContent: "center", alignItems: "center" }}
+              color="white"
+            />
+          </View>
+          <Avatar.Image size={40} source={{uri:'https://png4u.com/wp-content/uploads/2019/09/south-korea-flag-icon.png'}}/>
+        </Appbar.Header>
+        <Searchbar
+          placeholder="Search"
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+        />
+        <View style={{padding: 5}}>
+          <Card>
+            <Card.Cover source={{ uri: 'http://tong.visitkorea.or.kr/img/vk/enu/cms/content/98/2721498_image_1.jpg' }} />
+            <Card.Title title="25 Places To Go!" subtitle="Non-Contact Safe Attractions for this Summer"/>
+            <Card.Content>
+              <Text style={styles.subheader}>Requirements/Restrictions</Text>
+              <Paragraph>Maintain safe distancing as required</Paragraph>
+              <Paragraph></Paragraph>
+              <Text style={styles.subheader}>Miscellaneous Notes</Text>
+              <Paragraph>Mask wearing is recommended but not legally required during strenuous activity.</Paragraph>
+            </Card.Content>
+            <Card.Actions>
+              <Button onPress={() => Linking.openURL('https://english.visitkorea.or.kr/enu/AKR/FU_EN_15.jsp?cid=2721498')}>More Details</Button>
+            </Card.Actions>
+          </Card>
         </View>
-        <Avatar.Image size={40} source={CountryFlag} />
-      </Appbar.Header>
-      <View style={{ padding: 5 }}></View>
-      <List.Accordion
-        title="Outdoor Sports"
-        descriptionStyle={{ fontSize: 15 }}
-        left={(props) => <List.Icon {...props} icon="folder" />}
-        style={styles.listAccordion}
-      >
-        <List.Item
-          style={styles.listItem}
-          title="Location"
-          titleStyle={{ fontSize: 15 }}
-          description="Any outdoors venue."
-          descriptionStyle={{ fontSize: 12 }}
-        />
-        <List.Item
-          style={styles.listItem}
-          title="Requirements/Restrictions"
-          titleStyle={{ fontSize: 15 }}
-          description="Maintain safe distancing as required."
-          descriptionStyle={{ fontSize: 12 }}
-        />
-        <List.Item
-          style={styles.listItem}
-          title="Miscellaneous Notes"
-          titleStyle={{ fontSize: 15 }}
-          description="Mask wearing is recommended but not legally required during strenuous activity."
-          descriptionStyle={{ fontSize: 12 }}
-        />
-      </List.Accordion>
-
-      <List.Accordion
-        title="Outdoor Sports"
-        descriptionStyle={{ fontSize: 15 }}
-        left={(props) => <List.Icon {...props} icon="folder" />}
-        style={styles.listAccordion}
-      >
-        <List.Item
-          style={styles.listItem}
-          title="Location"
-          titleStyle={{ fontSize: 15 }}
-          description="Any outdoors venue."
-          descriptionStyle={{ fontSize: 12 }}
-        />
-        <List.Item
-          style={styles.listItem}
-          title="Requirements/Restrictions"
-          titleStyle={{ fontSize: 15 }}
-          description="Maintain safe distancing as required."
-          descriptionStyle={{ fontSize: 12 }}
-        />
-        <List.Item
-          style={styles.listItem}
-          title="Miscellaneous Notes"
-          titleStyle={{ fontSize: 15 }}
-          description="Mask wearing is recommended but not legally required during strenuous activity."
-          descriptionStyle={{ fontSize: 12 }}
-        />
-      </List.Accordion>
-    </View>
+        <View style={{padding: 5}}>
+          <Card>
+            <Card.Cover source={{ uri: 'http://tong.visitkorea.or.kr/img/vk/enu/cms/content/26/2720026_image_1.jpg' }} />
+            <Card.Title title="K-POP Online Hallyu Festival" subtitle="KCON:TACT 4 U Opens from June 19 and 27"/>
+            <Card.Content>
+              <Text style={styles.subheader}>Requirements/Restrictions</Text>
+              <Paragraph>Maintain safe distancing as required</Paragraph>
+              <Paragraph></Paragraph>
+              <Text style={styles.subheader}>Miscellaneous Notes</Text>
+              <Paragraph>Mask wearing is recommended but not legally required during strenuous activity.</Paragraph>
+            </Card.Content>
+            <Card.Actions>
+              <Button onPress={() => Linking.openURL('https://english.visitkorea.or.kr/enu/AKR/FU_EN_15.jsp?cid=2720026')}>More Details</Button>
+            </Card.Actions>
+          </Card>
+        </View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -96,6 +74,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     marginBottom: 1,
+  },
+  title:{
+    fontWeight: 'bold', 
+    fontSize: 35,
+  },
+  subheader:{
+    fontSize: 15,
+    textDecorationLine: 'underline',
+  },
+  body:{
+    fontSize:15
   },
 });
 

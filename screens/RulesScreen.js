@@ -19,12 +19,12 @@ export default function RulesScreen({ navigation }) {
         <Appbar.Header style={{backgroundColor: "tomato",}}>
         <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems:'center'}}>
           <Appbar.Content
-            title="Activities"
+            title="Rules and Regulations"
             style={{ justifyContent: "center", alignItems: "center" }}
             color="white"
           />
         </View>
-        <Avatar.Image size={40} source={CountryFlag} />
+        <Avatar.Image size={40} source={{uri:'https://png4u.com/wp-content/uploads/2019/09/south-korea-flag-icon.png'}} />
         </Appbar.Header>
         <View style={{padding: 5}}>
           <Text style={styles.title}>South Korea</Text>
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
   },
   title:{
     fontWeight: 'bold', 
-    fontSize: 35,
+    fontSize: 30,
   },
   subheader:{
     fontSize: 15,

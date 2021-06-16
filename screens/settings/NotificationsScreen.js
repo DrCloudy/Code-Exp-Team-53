@@ -8,27 +8,36 @@ import {
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { useState } from "react";
-// import ToggleSwitch from "toggle-switch-react-native";
-// import DropDownPicker from "react-native-dropdown-picker";
 
 export default function notifScreen() {
-  const notifOptions = [
-    { title: "Updates by country", id: "0" },
-    { title: "Activity recommendations", id: "1" },
-  ];
+  const [sel0, setSel0] = useState(true);
+  const [sel1, setSel1] = useState(true);
 
-  const [sel, setSel] = useState(true);
-
-  function flip() {
-    setSel(!sel);
+  function flip0() {
+    setSel0(!sel0);
   }
+
+  function flip1() {
+    setSel1(!sel1);
+  }
+
+  const notifOptions = [
+    { title: "Updates by country", selector: sel0, id: "0" },
+    { title: "Activity recommendations", selector: sel1, id: "1" },
+  ];
 
   function renderItem({ item }) {
     return (
-      <TouchableOpacity style={styles.listButton} onPress={flip}>
+      <TouchableOpacity
+        style={styles.listButton}
+        onPress={() => {
+          if (item.id === "0") flip0();
+          if (item.id === "1") flip1();
+        }}
+      >
         <View style={styles.listButtonView}>
           <Text style={{ flex: 1 }}>{item.title}</Text>
-          {sel ? (
+          {item.selector ? (
             <Feather name="check-circle" size={24} color="black" />
           ) : (
             <Feather name="circle" size={24} color="black" />

@@ -5,41 +5,31 @@ import settingsScreen from "./SettingsScreen";
 import notifScreen from "./NotificationsScreen";
 import prefScreen from "./PreferencesScreen";
 import langScreen from "./LanguagesScreen";
-import helpScreen from "./HelpCentreScreen";
 import contactScreen from "./ContactUsScreen";
 import SelectHomeScreen from "./SelectHomeScreen";
 import SelectDestScreen from "./SelectDestinationScreen";
-
 
 const Stack = createStackNavigator();
 
 export default function settingsStack() {
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator options={{ headerTintColor: "white"}} headerMode="float">
+      <Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: "tomato" }, headerTintColor: 'white', headerTitleAlign: 'center' }}>
         <Stack.Screen
-          name="Settings"
+          name="Setting"
           component={settingsScreen}
-          options={{
-            headerStyle: { backgroundColor: "tomato" },
-            headerTintColor: "white",
-            headerTitleAlign: "center",
-          }}
         />
         <Stack.Screen
           name="Notifications"
           component={notifScreen}
-          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Language"
           component={langScreen}
-          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Preferences"
           component={prefScreen}
-          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Home Country"
@@ -52,14 +42,8 @@ export default function settingsStack() {
           options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
-          name="Help Centre"
-          component={helpScreen}
-          options={{ headerStyle: { backgroundColor: "tomato" } }}
-        />
-        <Stack.Screen
           name="Contact Us!"
           component={contactScreen}
-          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
       </Stack.Navigator>
     </NavigationContainer>

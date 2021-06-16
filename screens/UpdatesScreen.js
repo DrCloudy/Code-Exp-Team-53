@@ -67,24 +67,20 @@ export default class MyComponent extends React.Component{
   };
 
   render(){
-  const korea= props=> <Avatar.Image size={40} source={require('../assets/southkorea.png')}/>
+  const korea= props=> <Avatar.Image size={40} source={{uri:'https://png4u.com/wp-content/uploads/2019/09/south-korea-flag-icon.png'}} />
   const singapore= props=> <Avatar.Image size={40} source={require('../assets/singapore.png')}/>
-  var DestCountry = 'South Korea';
-  var CountryFlag;
-  if(DestCountry==='South Korea'){
-    CountryFlag = require('../country-flags (Icon made by Freepik from www.flaticon.com)/png/219-south korea.png')
-  }
+  
       return(
         <ScrollView>
           <Appbar.Header style={{backgroundColor: "tomato",}}>
             <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems:'center'}}>
               <Appbar.Content
-                title="Activities"
+                title="Updates"
                 style={{ justifyContent: "center", alignItems: "center" }}
                 color="white"
               />
             </View>
-            <Avatar.Image size={40} source={CountryFlag} />
+            <Avatar.Image size={40} source={{uri:'https://png4u.com/wp-content/uploads/2019/09/south-korea-flag-icon.png'}} />
           </Appbar.Header>
           <Card>
             <Card.Title title="Korea" subtitle="as of 12am on June 15, 2021" left={korea} />
