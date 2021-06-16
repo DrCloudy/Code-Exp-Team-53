@@ -11,9 +11,10 @@ export default function settingsScreen({ navigation }) {
   const settingsOptions = [
     { title: "Notifications", id: "0" },
     { title: "Preferences", id: "1" },
-    { title: "Language", id: "2" },
-    { title: "Help Centre", id: "3" },
-    { title: "Contact Us!", id: "4" },
+    { title: "Change Country", id: "2"},
+    { title: "Language", id: "3" },
+    { title: "Help Centre", id: "4" },
+    { title: "Contact Us!", id: "5" },
   ];
 
   function renderItem({ item }) {
