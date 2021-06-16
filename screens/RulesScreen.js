@@ -1,7 +1,8 @@
 import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity,Linking, ScrollView, Image } from "react-native";
-import { IconButton, Appbar, Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
+import { IconButton, Appbar, Avatar, Button, Card, Title, Paragraph, Colors } from 'react-native-paper';
 import Hyperlink from 'react-native-hyperlink'
+import { Octicons } from '@expo/vector-icons';
 
 
 
@@ -17,8 +18,15 @@ export default function RulesScreen() {
     <ScrollView>
       <View>
         <Appbar.Header style={{backgroundColor: "tomato",}}>
-          <Appbar.Content title="Rules and Regulations" style = {styles.Headstyle} color = "white"/>  
           <Avatar.Image size={40} source={CountryFlag}/>
+          <Appbar.Content title="Rules and Regulations" style = {styles.Headstyle} color = "white"/>  
+          <IconButton
+            icon= "cog-outline"
+            color="black"
+            size={30}
+            onPress={() => console.log('Pressed')}
+          />
+
         </Appbar.Header>
         <View style={{padding: 5}}>
           <Text style={styles.title}>South Korea</Text>
