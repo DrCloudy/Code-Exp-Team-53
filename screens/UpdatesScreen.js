@@ -1,6 +1,6 @@
 import React from "react";
 import {Share, Text, View, StyleSheet,ScrollView,Linking } from "react-native";
-import { Avatar, Button, Card, Title, } from 'react-native-paper';
+import { Avatar, Button, Card, Title, Appbar, IconButton } from 'react-native-paper';
 
 
 export default class MyComponent extends React.Component{
@@ -69,8 +69,23 @@ export default class MyComponent extends React.Component{
   render(){
   const korea= props=> <Avatar.Image size={40} source={require('../assets/southkorea.png')}/>
   const singapore= props=> <Avatar.Image size={40} source={require('../assets/singapore.png')}/>
+  var DestCountry = 'South Korea';
+  var CountryFlag;
+  if(DestCountry==='South Korea'){
+    CountryFlag = require('../country-flags (Icon made by Freepik from www.flaticon.com)/png/219-south korea.png')
+  }
       return(
         <ScrollView>
+          <Appbar.Header style={{backgroundColor: "tomato",}}>
+          <Avatar.Image size={40} source={CountryFlag}/>
+          <Appbar.Content title="Updates" style = {{justifyContent: "center", alignItems: "center"}} color = "white"/>  
+          <IconButton
+            icon= "cog-outline"
+            color="black"
+            size={30}
+            onPress={() => console.log('Pressed')}
+          />
+      </Appbar.Header>
           <Card>
             <Card.Title title="Korea" subtitle="as of 12am on June 15, 2021" left={korea} />
             <Card.Content>
@@ -94,7 +109,7 @@ export default class MyComponent extends React.Component{
             </Card.Actions>
           </Card>
           <Card>
-            <Card.Title title="Singapore" subtitle="as of 14 June 2021, 1200h" left={singapore} />
+            <Card.Title title="Singapore" subtitle="as at 14 June 2021, 1200h" left={singapore} />
             <Card.Content>
               <Title>Case Summary in Singapore</Title>
             </Card.Content>
