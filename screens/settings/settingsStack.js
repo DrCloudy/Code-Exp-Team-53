@@ -17,7 +17,7 @@ export default function settingsStack() {
     <NavigationContainer independent={true}>
       <Stack.Navigator>
         <Stack.Screen
-          name="Settings"
+          name="Setting"
           component={settingsScreen}
           options={{
             headerStyle: {

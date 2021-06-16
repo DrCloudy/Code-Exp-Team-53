@@ -3,11 +3,6 @@ import { View, StyleSheet } from "react-native";
 import { List, Avatar, Appbar, IconButton } from "react-native-paper";
 
 const MyComponent = () => {
-  var DestCountry = "South Korea";
-  var CountryFlag;
-  if (DestCountry === "South Korea") {
-    CountryFlag = require("../country-flags (Icon made by Freepik from www.flaticon.com)/png/219-south korea.png");
-  }
 
   return (
     <View>
@@ -19,7 +14,7 @@ const MyComponent = () => {
             color="white"
           />
         </View>
-        <Avatar.Image size={40} source={CountryFlag} />
+        <Avatar.Image size={40} source={{uri:'https://png4u.com/wp-content/uploads/2019/09/south-korea-flag-icon.png'}} />
       </Appbar.Header>
       <View style={{ padding: 5 }}></View>
       <List.Accordion
