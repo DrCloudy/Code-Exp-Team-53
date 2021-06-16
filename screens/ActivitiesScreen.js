@@ -4,8 +4,8 @@ import { List, Avatar, Appbar, IconButton, Card, Paragraph, Button, Searchbar } 
 
 const MyComponent = () => {
   const [searchQuery, setSearchQuery] = React.useState('');
-
   const onChangeSearch = query => setSearchQuery(query);
+  
   return (
     <ScrollView>
       <View>
@@ -29,7 +29,7 @@ const MyComponent = () => {
             <Card.Cover source={{ uri: 'http://tong.visitkorea.or.kr/img/vk/enu/cms/content/98/2721498_image_1.jpg' }} />
             <Card.Title title="25 Places To Go!" subtitle="Non-Contact Safe Attractions for this Summer"/>
             <Card.Content>
-              <Text style={styles.subheader}>Requirements/Restrictions)</Text>
+              <Text style={styles.subheader}>Requirements/Restrictions</Text>
               <Paragraph>Maintain safe distancing as required</Paragraph>
               <Paragraph></Paragraph>
               <Text style={styles.subheader}>Miscellaneous Notes</Text>
@@ -45,7 +45,7 @@ const MyComponent = () => {
             <Card.Cover source={{ uri: 'http://tong.visitkorea.or.kr/img/vk/enu/cms/content/26/2720026_image_1.jpg' }} />
             <Card.Title title="K-POP Online Hallyu Festival" subtitle="KCON:TACT 4 U Opens from June 19 and 27"/>
             <Card.Content>
-              <Text style={styles.subheader}>Requirements/Restrictions)</Text>
+              <Text style={styles.subheader}>Requirements/Restrictions</Text>
               <Paragraph>Maintain safe distancing as required</Paragraph>
               <Paragraph></Paragraph>
               <Text style={styles.subheader}>Miscellaneous Notes</Text>
