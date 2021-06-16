@@ -10,7 +10,7 @@ const MyComponent = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <View>
       <Appbar.Header style={{backgroundColor: "tomato",}}>
           <Avatar.Image size={40} source={CountryFlag}/>
           <Appbar.Content title="Activities" style = {{justifyContent: "center", alignItems: "center"}} color = "white"/>  
