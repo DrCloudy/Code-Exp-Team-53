@@ -18,11 +18,13 @@ export default function langScreen() {
 
   const langOptions = [
     { title: "English", id: "0" },
-    { title: "Chinese (Simplified)", id: "1" },
-    { title: "Bahasa", id: "2" },
-    { title: "Spanish", id: "3" },
-    { title: "Tamil", id: "4" },
-    { title: "Swedish", id: "5" },
+    { title: "简体中文", id: "1" },
+    { title: "Bahasa Malaysia", id: "2" },
+    { title: "日本語", id: "3" },
+    { title: "한국어", id: "4" },
+    { title: "ภาษาไทย", id: "5" },
+    { title: "Filipino", id: "6" },
+    { title: "Tiếng Việt", id: "7" },
   ];
 
   function renderItem({ item }) {
