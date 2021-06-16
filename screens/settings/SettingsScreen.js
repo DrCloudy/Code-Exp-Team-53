@@ -14,8 +14,7 @@ export default function settingsScreen({ navigation }) {
     { title: "Home Country", id: "2"},
     { title: "Destination Country", id: "3"},
     { title: "Language", id: "4" },
-    { title: "Help Centre", id: "5" },
-    { title: "Contact Us!", id: "6" },
+    { title: "Contact Us!", id: "5" },
   ];
 
   function renderItem({ item }) {
