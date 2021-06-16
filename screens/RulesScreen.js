@@ -53,12 +53,12 @@ export default function RulesScreen({ navigation }) {
               <Paragraph>Rule 1: Stay home for 3 to 4 days if you feel unwell.</Paragraph>
               <Paragraph>Rule 2: Keep a distance of two arms' length from others.</Paragraph>
               <Paragraph>Rule 3: Wash your hands for 30 seconds. Cough or sneeze into your sleeve.</Paragraph>
-              <Paragraph>Rule 4: Ventilate at least twice a day and disinfect regularly.</Paragraph>
-              <Paragraph>Rule 5: Stay connected while physically distancing.</Paragraph>
+              <Paragraph><Text style={{color:'green'}}>Rule 4: Ventilate at least twice a day and disinfect regularly.</Text></Paragraph>
+              <Paragraph><Text style={{color:'green'}}>Rule 5: Stay connected while physically distancing.</Text></Paragraph>
               <Paragraph></Paragraph>
               <Text style={styles.subheader}>Five Essential Rules(Community)</Text>
               <Paragraph>Rule 1: Work together to protect your community.</Paragraph>
-              <Paragraph>Rule 2: Designate a quarantine manager for effective response.</Paragraph>
+              <Paragraph><Text style={{color:'green'}}>Rule 2: Designate a quarantine manager for effective response.</Text></Paragraph>
               <Paragraph>Rule 3: Respect your community's quarantine guidelines</Paragraph>
               <Paragraph>Rule 4: The quarantine manager will do the best to protect the community.</Paragraph>
               <Paragraph>Rule 5: The leader and members of the community will provide full support for the quarantine manager.</Paragraph>
