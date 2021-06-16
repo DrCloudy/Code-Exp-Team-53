@@ -77,15 +77,15 @@ export default class MyComponent extends React.Component{
       return(
         <ScrollView>
           <Appbar.Header style={{backgroundColor: "tomato",}}>
-          <Avatar.Image size={40} source={CountryFlag}/>
-          <Appbar.Content title="Updates" style = {{justifyContent: "center", alignItems: "center"}} color = "white"/>  
-          <IconButton
-            icon= "cog-outline"
-            color="black"
-            size={30}
-            onPress={() => console.log('Pressed')}
-          />
-      </Appbar.Header>
+            <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems:'center'}}>
+              <Appbar.Content
+                title="Activities"
+                style={{ justifyContent: "center", alignItems: "center" }}
+                color="white"
+              />
+            </View>
+            <Avatar.Image size={40} source={CountryFlag} />
+          </Appbar.Header>
           <Card>
             <Card.Title title="Korea" subtitle="as of 12am on June 15, 2021" left={korea} />
             <Card.Content>

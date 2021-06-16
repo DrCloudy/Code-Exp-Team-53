@@ -12,18 +12,14 @@ const MyComponent = () => {
   return (
     <View>
       <Appbar.Header style={{ backgroundColor: "tomato" }}>
+        <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems:'center'}}>
+          <Appbar.Content
+            title="Activities"
+            style={{ justifyContent: "center", alignItems: "center" }}
+            color="white"
+          />
+        </View>
         <Avatar.Image size={40} source={CountryFlag} />
-        <Appbar.Content
-          title="Activities"
-          style={{ justifyContent: "center", alignItems: "center" }}
-          color="white"
-        />
-        <IconButton
-          icon="cog-outline"
-          color="black"
-          size={30}
-          onPress={() => console.log("Pressed")}
-        />
       </Appbar.Header>
       <View style={{ padding: 5 }}></View>
       <List.Accordion

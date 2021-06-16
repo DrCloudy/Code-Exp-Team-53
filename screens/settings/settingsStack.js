@@ -17,27 +17,27 @@ export default function settingsStack() {
         <Stack.Screen
           name="Settings"
           component={settingsScreen}
-          options={{ headerStyle: { backgroundColor: "salmon" } }}
+          options={{ headerStyle: { backgroundColor: "tomato", justifyContent: "center", alignItems: "center", color: "white"}}}
         />
         <Stack.Screen
           name="Notifications"
           component={notifScreen}
-          options={{ headerStyle: { backgroundColor: "salmon" } }}
+          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Language"
           component={langScreen}
-          options={{ headerStyle: { backgroundColor: "salmon" } }}
+          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Preferences"
           component={prefScreen}
-          options={{ headerStyle: { backgroundColor: "salmon" } }}
+          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Help Centre"
           component={helpScreen}
-          options={{ headerStyle: { backgroundColor: "salmon" } }}
+          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Contact Us!"
