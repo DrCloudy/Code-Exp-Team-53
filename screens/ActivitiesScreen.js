@@ -1,12 +1,28 @@
 import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { List } from 'react-native-paper';
+import { List, Avatar, Appbar, IconButton } from 'react-native-paper';
 
 const MyComponent = () => {
-  return (
+  var DestCountry = 'South Korea';
+  var CountryFlag;
+  if(DestCountry==='South Korea'){
+    CountryFlag = require('../country-flags (Icon made by Freepik from www.flaticon.com)/png/219-south korea.png')
+  }
 
-    <List.Section title="Activities of note" titleStyle={{fontSize: 20, textAlign: 'center', textTransform: 'uppercase'}}>
+  return (
     <View style={styles.container}>
+      <Appbar.Header style={{backgroundColor: "tomato",}}>
+          <Avatar.Image size={40} source={CountryFlag}/>
+          <Appbar.Content title="Activities" style = {{justifyContent: "center", alignItems: "center"}} color = "white"/>  
+          <IconButton
+            icon= "cog-outline"
+            color="black"
+            size={30}
+            onPress={() => console.log('Pressed')}
+          />
+      </Appbar.Header>
+      <View style={{padding: 5}}>
+      </View>
       <List.Accordion
         title="Outdoor Sports"
         descriptionStyle={{fontSize: 15}}
@@ -63,7 +79,6 @@ const MyComponent = () => {
         />
       </List.Accordion>
     </View>
-    </List.Section>
   );
 };
 
