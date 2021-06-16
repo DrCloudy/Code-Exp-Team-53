@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableOpacity,Linking, ScrollView } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity,Linking, ScrollView, Image } from "react-native";
 import { IconButton, Appbar, Avatar, Button, Card, Title, Paragraph } from 'react-native-paper';
 import Hyperlink from 'react-native-hyperlink'
 
@@ -13,8 +13,7 @@ export default function RulesScreen() {
           <Appbar.Content title="Rules and Regulations" style = {styles.Headstyle} color = "white"/>
           <TouchableOpacity>
             <View>
-              {/* <Image style={{width:2,height:2}} source={{uri: 'https://cdn.countryflags.com/thumbs/singapore/flag-button-round-250.png'}}/> */}
-              <Text>Temp</Text>
+              <Image style={{width:50,height:50}} source={{uri: 'https://cdn.countryflags.com/thumbs/singapore/flag-button-round-250.png'}}/>
             </View>
           </TouchableOpacity>
         </Appbar.Header>
@@ -73,7 +72,8 @@ export default function RulesScreen() {
             </Card.Actions>
             <Card.Content>
               <Paragraph>
-                <Text style={{color: 'purple', textDecorationLine: 'underline'}} onPress={() => Linking.openURL('https://www.straitstimes.com/asia/east-asia/south-korea-hopes-to-expedite-talks-with-singapore-taiwan-to-start-travel-bubble-from')}>South Korea hopes to expedite talks with Singapore</Text>
+                9 June 2021: 
+                <Text style={{color: '#8231f4', textDecorationLine: 'underline'}} onPress={() => Linking.openURL('https://www.straitstimes.com/asia/east-asia/south-korea-hopes-to-expedite-talks-with-singapore-taiwan-to-start-travel-bubble-from')}> South Korea hopes to expedite talks with Singapore</Text>
               </Paragraph>
             </Card.Content>
           </Card>

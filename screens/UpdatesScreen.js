@@ -5,6 +5,7 @@ export default function UpdatesScreen() {
   return (
     <View style={styles.container}>
       <Text>Updates</Text>
+      
     </View>
   );
 }

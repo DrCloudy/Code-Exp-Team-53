@@ -4,7 +4,8 @@ import { Text, View, StyleSheet } from "react-native";
 export default function ActivitiesScreen() {
   return (
     <View style={styles.container}>
-        <Text>Reccommendations</Text>
+      <Text>Reccommendations</Text>
+      <Image style={{width:2,height:2}} source={{uri: 'https://cdn.countryflags.com/thumbs/singapore/flag-button-round-250.png'}}/>
     </View>
   );
 }
