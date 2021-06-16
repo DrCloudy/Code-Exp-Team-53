@@ -15,6 +15,7 @@ export default function prefScreen() {
   const [sel2, setSel2] = useState(true);
   const [sel3, setSel3] = useState(true);
   const [sel4, setSel4] = useState(true);
+  const [sel5, setSel5] = useState(true);
 
   function flip0() {
     setSel0(!sel0);
@@ -36,13 +37,19 @@ export default function prefScreen() {
     setSel4(!sel4);
   }
 
-  const notifOptions = [
+  function flip5() {
+    setSel5(!sel5);
+  }
+
+  const prefOptions = [
     { title: "Outdoor sports", selector: sel0, id: "0" },
     { title: "Indoor sports", selector: sel1, id: "1" },
     { title: "Arts & craft", selector: sel2, id: "2" },
     { title: "Clubs and pubs", selector: sel3, id: "3" },
     { title: "Dining", selector: sel4, id: "4" },
   ];
+
+  const appprefOptions = [{ title: "Dark mode", selector: sel5, id: "5" }];
 
   function renderItem({ item }) {
     return (
@@ -54,6 +61,7 @@ export default function prefScreen() {
           if (item.id === "2") flip2();
           if (item.id === "3") flip3();
           if (item.id === "4") flip4();
+          if (item.id === "5") flip5();
         }}
       >
         <View style={styles.listButtonView}>
@@ -70,12 +78,16 @@ export default function prefScreen() {
 
   return (
     <View style={styles.settingsStyle}>
-      <Text style={styles.dispText}>
-        What activity updates are you interested in?
-      </Text>
+      <Text style={styles.dispText}>Display activity updates for:</Text>
       <FlatList
         style={styles.flatlistStyle}
-        data={notifOptions}
+        data={prefOptions}
+        renderItem={renderItem}
+      />
+      <Text style={styles.dispText}>App preferences:</Text>
+      <FlatList
+        style={styles.flatlistStyle}
+        data={appprefOptions}
         renderItem={renderItem}
       />
     </View>
@@ -86,7 +98,6 @@ const styles = StyleSheet.create({
   dispText: {
     fontSize: 18,
     padding: 10,
-    alignItems: "left",
   },
   listButton: {
     backgroundColor: "lightgrey",
