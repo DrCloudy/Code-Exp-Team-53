@@ -78,7 +78,7 @@ export default class MyComponent extends React.Component{
         <ScrollView>
           <Appbar.Header style={{backgroundColor: "tomato",}}>
           <Avatar.Image size={40} source={CountryFlag}/>
-          <Appbar.Content title="Activities" style = {{justifyContent: "center", alignItems: "center"}} color = "white"/>  
+          <Appbar.Content title="Updates" style = {{justifyContent: "center", alignItems: "center"}} color = "white"/>  
           <IconButton
             icon= "cog-outline"
             color="black"
