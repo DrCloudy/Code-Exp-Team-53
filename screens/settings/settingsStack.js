@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 export default function settingsStack() {
   return (
     <NavigationContainer independent={true}>
-      <Stack.Navigator options={{ headerTintColor: "white" }}>
+      <Stack.Navigator options={{ headerTintColor: "white"}} headerMode="float">
         <Stack.Screen
           name="Settings"
           component={settingsScreen}
