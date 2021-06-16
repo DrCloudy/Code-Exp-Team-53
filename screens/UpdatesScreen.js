@@ -94,7 +94,7 @@ export default class MyComponent extends React.Component{
             </Card.Actions>
           </Card>
           <Card>
-            <Card.Title title="Singapore" subtitle="as at 14 June 2021, 1200h" left={singapore} />
+            <Card.Title title="Singapore" subtitle="as of 14 June 2021, 1200h" left={singapore} />
             <Card.Content>
               <Title>Case Summary in Singapore</Title>
             </Card.Content>
