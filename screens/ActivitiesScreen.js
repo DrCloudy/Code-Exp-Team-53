@@ -1,9 +1,11 @@
 import * as React from "react";
 import { View, StyleSheet, Text, ScrollView, Linking } from "react-native";
-import { List, Avatar, Appbar, IconButton, Card, Paragraph, Button } from "react-native-paper";
+import { List, Avatar, Appbar, IconButton, Card, Paragraph, Button, Searchbar } from "react-native-paper";
 
 const MyComponent = () => {
+  const [searchQuery, setSearchQuery] = React.useState('');
 
+  const onChangeSearch = query => setSearchQuery(query);
   return (
     <ScrollView>
       <View>
@@ -17,6 +19,11 @@ const MyComponent = () => {
           </View>
           <Avatar.Image size={40} source={{uri:'https://png4u.com/wp-content/uploads/2019/09/south-korea-flag-icon.png'}}/>
         </Appbar.Header>
+        <Searchbar
+          placeholder="Search"
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+        />
         <View style={{padding: 5}}>
           <Card>
             <Card.Cover source={{ uri: 'http://tong.visitkorea.or.kr/img/vk/enu/cms/content/98/2721498_image_1.jpg' }} />
