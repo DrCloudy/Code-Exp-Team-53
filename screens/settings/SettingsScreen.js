@@ -13,8 +13,7 @@ export default function settingsScreen({ navigation }) {
     { title: "Preferences", id: "1" },
     { title: "Change Country", id: "2"},
     { title: "Language", id: "3" },
-    { title: "Help Centre", id: "4" },
-    { title: "Contact Us!", id: "5" },
+    { title: "Contact Us!", id: "4" },
   ];
 
   function renderItem({ item }) {
