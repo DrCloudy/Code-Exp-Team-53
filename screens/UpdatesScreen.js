@@ -75,7 +75,7 @@ export default class MyComponent extends React.Component{
           <Appbar.Header style={{backgroundColor: "tomato",}}>
             <View style={{position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, justifyContent: 'center', alignItems:'center'}}>
               <Appbar.Content
-                title="Activities"
+                title="Updates"
                 style={{ justifyContent: "center", alignItems: "center" }}
                 color="white"
               />
