@@ -3,12 +3,10 @@ import { Text, View, StyleSheet, TouchableOpacity,Linking, ScrollView, Image } f
 import { IconButton, Appbar, Avatar, Button, Card, Title, Paragraph, Colors } from 'react-native-paper';
 import Hyperlink from 'react-native-hyperlink'
 import { Octicons } from '@expo/vector-icons';
-import { createStackNavigator } from "@react-navigation/stack";
-import SetupScreen from "./SetupScreen.js";
 
 
 
-function RulesScreen({ navigation }) {
+export default function RulesScreen({ navigation }) {
   var DestCountry = 'South Korea';
   var CountryFlag;
   if(DestCountry==='South Korea'){
@@ -25,7 +23,7 @@ function RulesScreen({ navigation }) {
             icon= "cog-outline"
             color="black"
             size={30}
-            onPress={() => navigation.navigate('MyModal')}
+            onPress={() => {}}
           />
 
         </Appbar.Header>
@@ -92,39 +90,6 @@ function RulesScreen({ navigation }) {
         </View>
       </View>
     </ScrollView>
-  );
-}
-
-function ModalScreen({ navigation }) {
-  return (
-    <View style={{ flex: 1 }}>
-      <SetupScreen />
-    </View>
-  );
-}
-
-const MainStack = createStackNavigator();
-
-function MainStackScreen() {
-  return (
-    <MainStack.Navigator>
-      <MainStack.Screen name="Home" component={RulesScreen} options={{ headerShown: false}} />
-    </MainStack.Navigator>
-  );
-}
-
-const RootStack = createStackNavigator();
-
-export default function RulesScreenStack() {
-  return (
-    <RootStack.Navigator mode="modal">
-      <RootStack.Screen
-        name="Main"
-        component={MainStackScreen}
-        options={{ headerShown: false }}
-      />
-      <RootStack.Screen name="MyModal" component={ModalScreen} />
-    </RootStack.Navigator>
   );
 }
 

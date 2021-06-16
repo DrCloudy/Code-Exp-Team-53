@@ -5,33 +5,41 @@ import {
   StyleSheet,
   FlatList,
   TouchableOpacity,
-  Alert,
 } from "react-native";
+import { Feather } from "@expo/vector-icons";
+import { useState } from "react";
 // import ToggleSwitch from "toggle-switch-react-native";
 // import DropDownPicker from "react-native-dropdown-picker";
 
-export default function notifScreen({ navigation }) {
+export default function notifScreen() {
   const notifOptions = [
     { title: "Updates by country", id: "0" },
     { title: "Activity recommendations", id: "1" },
   ];
 
+  const [sel, setSel] = useState(true);
+
+  function flip() {
+    setSel(!sel);
+  }
+
   function renderItem({ item }) {
     return (
-      <TouchableOpacity
-        style={styles.listButton}
-        onPress={() => {
-          navigation.navigate(`${item.title}`);
-          // console.log("Hey");
-        }}
-      >
-        <Text>{item.title}</Text>
+      <TouchableOpacity style={styles.listButton} onPress={flip}>
+        <View style={styles.listButtonView}>
+          <Text style={{ flex: 1 }}>{item.title}</Text>
+          {sel ? (
+            <Feather name="check-circle" size={24} color="black" />
+          ) : (
+            <Feather name="circle" size={24} color="black" />
+          )}
+        </View>
       </TouchableOpacity>
     );
   }
 
   return (
-    <View stye={{ alignItems: "center" }}>
+    <View style={styles.settingsStyle}>
       <Text style={styles.dispText}>
         What would you like to be notified about?
       </Text>
@@ -55,14 +63,13 @@ const styles = StyleSheet.create({
     margin: 5,
     borderRadius: 13,
     alignItems: "center",
-    // width: "100%",
   },
-  // settingsStyle: {
-  //   alignItems: "center",
-  //   margin: 5,
-  //   // padding: 5,
-  // },
+  settingsStyle: {
+    alignItems: "center",
+    margin: 5,
+  },
   flatlistStyle: {
-    width: "80%",
+    width: "90%",
   },
+  listButtonView: { flexDirection: "row", width: "100%", flex: 1 },
 });

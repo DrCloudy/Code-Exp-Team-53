@@ -8,6 +8,7 @@ import langScreen from "./LanguagesScreen";
 import helpScreen from "./HelpCentreScreen";
 import contactScreen from "./ContactUsScreen";
 
+
 const Stack = createStackNavigator();
 
 export default function settingsStack() {
@@ -17,32 +18,32 @@ export default function settingsStack() {
         <Stack.Screen
           name="Settings"
           component={settingsScreen}
-          options={{ headerStyle: { backgroundColor: "salmon" } }}
+          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Notifications"
           component={notifScreen}
-          options={{ headerStyle: { backgroundColor: "salmon" } }}
+          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Language"
           component={langScreen}
-          options={{ headerStyle: { backgroundColor: "salmon" } }}
+          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Preferences"
           component={prefScreen}
-          options={{ headerStyle: { backgroundColor: "salmon" } }}
+          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Help Centre"
           component={helpScreen}
-          options={{ headerStyle: { backgroundColor: "salmon" } }}
+          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
         <Stack.Screen
           name="Contact Us!"
           component={contactScreen}
-          options={{ headerStyle: { backgroundColor: "salmon" } }}
+          options={{ headerStyle: { backgroundColor: "tomato" } }}
         />
       </Stack.Navigator>
     </NavigationContainer>
